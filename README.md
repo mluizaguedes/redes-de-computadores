@@ -103,14 +103,14 @@ O arquivo docker-compose.yml orquestra a execução dos containers. Ele define o
 - Nginx: O Nginx depende dos três containers de backend. Ele escuta na porta 80 e repassa as requisições para o backend de acordo com a configuração do default.conf. A configuração depends_on garante que o Nginx só será iniciado após as instâncias do backend estarem prontas.
 
 ### Fluxo de Requisições
-1. O usuário envia uma requisição para o servidor, que é direcionada à porta 80 do Nginx.
-2. O Nginx, atuando como proxy reverso, recebe a requisição e a encaminha para uma das instâncias de backend (app1, app2, ou app3) com base na configuração de balanceamento de carga.
-3. A instância do backend processa a requisição, interage com o banco de dados MySQL (se necessário) e envia a resposta de volta para o Nginx.
+1. O usuário envia uma requisição para o servidor, que é direcionada à porta 80 do Nginx;
+2. O Nginx, atuando como proxy reverso, recebe a requisição e a encaminha para uma das instâncias de backend (app1, app2, ou app3) com base na configuração de balanceamento de carga;
+3. A instância do backend processa a requisição, interage com o banco de dados (se necessário) e envia a resposta de volta para o Nginx;
 4. O Nginx retorna a resposta ao usuário.
 
 ### Conclusão e Benefícios da Arquitetura
-- Escalabilidade: O uso de múltiplas instâncias de backend permite que a aplicação lide com mais tráfego, pois o Nginx distribui as requisições entre os servidores.
-- Alta Disponibilidade: Com o Nginx como load balancer, se uma instância falhar, as outras ainda poderão atender às requisições, garantindo a continuidade do serviço.
-- Facilidade de Manutenção: Cada componente da aplicação (backend, banco de dados, proxy) está isolado em containers separados, facilitando a manutenção e a atualização de um componente sem afetar os outros.
+- Escalabilidade: O uso de múltiplas instâncias de backend permite que a aplicação lide com mais tráfego, pois o Nginx distribui as requisições entre os servidores;
+- Alta Disponibilidade: Com o Nginx como load balancer, se uma instância falhar, as outras ainda poderão atender às requisições, garantindo a continuidade do serviço;
+- Facilidade de Manutenção: O backend e o proxy estão isolados em containers separados, o que facilita a manutenção e a atualização de componentes sem afetar os outros. Além disso, o banco de dados, hospedado no AWS RDS MySQL, oferece vantagens como gerenciamento simplificado, backups automáticos, monitoramento integrado, entre outras. Isso garante que o banco de dados seja mantido de forma eficiente e sem a necessidade de intervenção direta no servidor.
 
 Esta abordagem modular e escalável é uma solução ideal para aplicações que precisam lidar com uma carga variável ou crescer conforme a demanda.
