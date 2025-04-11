@@ -60,8 +60,8 @@ Aplicação web baseada em Docker que consiste em uma arquitetura de múltiplos 
 
 O projeto está dividido em:
 
-- **Backend (Flask)**: Três containers da aplicação backend, cada um executando a mesma aplicação, mas distribuídos para melhorar a escalabilidade e o balanceamento de carga;
-- **NGINX**: Atua como um proxy reverso e balanceador de carga, distribuindo as requisições entre os três containers de backend (app1, app2, app3);
+- **Backend (Flask)**: Três servidores, cada um executando a mesma aplicação, mas distribuídos para melhorar a escalabilidade e o balanceamento de carga;
+- **NGINX**: Atua como um proxy reverso e balanceador de carga, distribuindo as requisições entre os três servidores (app1, app2, app3);
 - **Docker Compose**: Orquestra os containers e redes;
 - **Banco de Dados (MySQL na AWS)**:  Armazena as informações dos usuários e suas interações com a aplicação (como suas avaliações de filmes);
 - **RDS da AWS**: Oferece segurança, escalabilidade e gerenciamento automatizado.
@@ -77,15 +77,15 @@ O projeto está dividido em:
 Permite isolar os componentes da aplicação - backend e proxy - em containers separados. Isso oferece vantagens:
 
 - Isolamento e Independência: Cada parte funciona de forma independente, o que facilita a manutenção e a atualização de componentes sem afetar o funcionamento dos outros;
-- Escalabilidade: Com o Docker, é fácil escalar a aplicação para mais containers do backend, conforme necessário. Por exemplo, podemos adicionar mais containers appX sem alterar a configuração de outros serviços;
+- Escalabilidade: Com o Docker, é fácil escalar a aplicação para mais servidores, conforme necessário. Por exemplo, podemos adicionar mais containers appX sem alterar a configuração de outros serviços;
 - Portabilidade: A aplicação é executada no mesmo ambiente em qualquer máquina ou servidor, garantindo consistência entre desenvolvimento, testes e produção.
 
 #### 2. Escolha do Load Balancer (Nginx)
-Estamos usando o Nginx como proxy reverso e load balancer por ser uma solução robusta, amplamente utilizada, e de fácil configuração. Ele distribui o tráfego de entrada entre os containers do backend (app1, app2, app3), garantindo:
+Estamos usando o Nginx como proxy reverso e load balancer por ser uma solução robusta, amplamente utilizada, e de fácil configuração. Ele distribui o tráfego de entrada entre os servidores (app1, app2, app3), garantindo:
 
 1. Desempenho otimizado: O Nginx é altamente eficiente na distribuição de requisições;
-2. Alta disponibilidade: Caso uma das instâncias do backend falhe, o Nginx pode redirecionar as requisições para outros containers disponíveis;
-3. Escalabilidade: A configuração do Nginx permite facilmente adicionar ou remover containers de backend.
+2. Alta disponibilidade: Caso um dos servidores do backend falhe, o Nginx pode redirecionar as requisições para outros servidores disponíveis;
+3. Escalabilidade: A configuração do Nginx permite facilmente adicionar ou remover servidores de backend.
 
 #### 3. Banco de Dados - AWS RDS (MySQL)
 Utilizar o RDS permite escalar o banco de dados de forma automática, além de contar com a robustez e segurança fornecidas pela AWS. A escolha do MySQL como sistema de gerenciamento de banco de dados é devido à sua simplicidade e compatibilidade com a aplicação.
@@ -94,13 +94,13 @@ Utilizar o RDS permite escalar o banco de dados de forma automática, além de c
   
 ### Fluxo de Requisições
 1. O usuário envia uma requisição para o servidor, que é direcionada à porta 80 do Nginx;
-2. O Nginx, atuando como proxy reverso, recebe a requisição e a encaminha para uma dos containers de backend (app1, app2, ou app3) com base na configuração de balanceamento de carga;
-3. O container do backend processa a requisição, interage com o banco de dados (se necessário) e envia a resposta de volta para o Nginx;
+2. O Nginx, atuando como proxy reverso, recebe a requisição e a encaminha para uma dos servidores de backend (app1, app2, ou app3) com base na configuração de balanceamento de carga;
+3. O servidor do backend processa a requisição, interage com o banco de dados (se necessário) e envia a resposta de volta para o Nginx;
 4. O Nginx retorna a resposta ao usuário.
 
 ### Conclusão e Benefícios da Arquitetura
-- Escalabilidade: O uso de múltiplos containers de backend permite que a aplicação lide com mais tráfego, pois o Nginx distribui as requisições entre os servidores;
-- Alta Disponibilidade: Com o Nginx como load balancer, se um containers falhar, os outros ainda poderão atender às requisições, garantindo a continuidade do serviço;
+- Escalabilidade: O uso de múltiplos servidores de backend permite que a aplicação lide com mais tráfego;
+- Alta Disponibilidade: Com o Nginx como load balancer, se um servidor falhar, os outros ainda poderão atender às requisições, garantindo a continuidade do serviço;
 - Facilidade de Manutenção: O backend e o proxy estão isolados em containers separados, o que facilita a manutenção e a atualização de componentes sem afetar os outros. Além disso, o banco de dados, hospedado no AWS RDS MySQL, oferece vantagens como gerenciamento simplificado, backups automáticos, monitoramento integrado, entre outras. Isso garante que o banco de dados seja mantido de forma eficiente e sem a necessidade de intervenção direta no servidor.
 
 Esta abordagem modular e escalável é uma solução ideal para aplicações que precisam lidar com uma carga variável ou crescer conforme a demanda.
