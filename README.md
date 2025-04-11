@@ -80,14 +80,14 @@ Permite isolar os componentes da aplicação - backend e proxy - em containers s
 - Escalabilidade: Com o Docker, é fácil escalar a aplicação para mais servidores, conforme necessário. Por exemplo, podemos adicionar mais containers appX sem alterar a configuração de outros serviços;
 - Portabilidade: A aplicação é executada no mesmo ambiente em qualquer máquina ou servidor, garantindo consistência entre desenvolvimento, testes e produção.
 
-#### 2. Escolha do Load Balancer (Nginx)
+#### 2. Balanceamento de Carga com NGINX
 Estamos usando o Nginx como proxy reverso e load balancer por ser uma solução robusta, amplamente utilizada, e de fácil configuração. Ele distribui o tráfego de entrada entre os servidores (app1, app2, app3), garantindo:
 
 1. Desempenho otimizado: O Nginx é altamente eficiente na distribuição de requisições;
 2. Alta disponibilidade: Caso um dos servidores do backend falhe, o Nginx pode redirecionar as requisições para outros servidores disponíveis;
 3. Escalabilidade: A configuração do Nginx permite facilmente adicionar ou remover servidores de backend.
 
-#### 3. Banco de Dados - AWS RDS (MySQL)
+#### 3. Banco de Dados na AWS RDS (MySQL)
 Utilizar o RDS permite escalar o banco de dados de forma automática, além de contar com a robustez e segurança fornecidas pela AWS. A escolha do MySQL como sistema de gerenciamento de banco de dados é devido à sua simplicidade e compatibilidade com a aplicação.
 
 <Details> 
