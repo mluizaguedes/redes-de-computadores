@@ -23,7 +23,7 @@
 ![image](https://github.com/user-attachments/assets/382b3165-b079-454f-8e99-c26e5f0cdcbd)
 ![image](https://github.com/user-attachments/assets/63fb2003-82f6-451e-9bb7-4a5587e84106)
 
-* Clique em **Editar regras de entradas** e adicione as portas: 3306 (Mysql) e 5000-5005. No meu caso eu também adicionei a porta 8080, caso precisasse ja teria.
+* Clique em **Editar regras de entradas** e adicione as portas: 3306 (Mysql) e 5000-5005.
 
 ![image](https://github.com/user-attachments/assets/c2915104-9dc3-4ebb-893c-72b94edd0e98)
 
