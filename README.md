@@ -106,3 +106,19 @@ Utilizar o RDS permite escalar o banco de dados de forma automática, além de c
 4. O Nginx retorna a resposta ao usuário.
 
 </Details> 
+
+<details>
+  <summary>⚙️ Explicação das Configurações</summary>
+</br>
+  
+  * Acesse para ver a configuração do [Projeto](./instruções/docker-readme.md)
+
+</details>
+
+---
+
+|Nome | GitHub|
+| -------- | -------- |
+|**Julia Gonzalez**| [![](https://bit.ly/3f9Xo0P)](https://github.com/juliagonzalezmoreira)|
+|**Maria Luiza Guedes**| [![](https://bit.ly/3f9Xo0P)](https://github.com/mluizaguedes)|
+|**Sofia Lessa**|[![](https://bit.ly/3f9Xo0P)](https://github.com/sofialessaa)|
