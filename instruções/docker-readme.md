@@ -1,4 +1,4 @@
-## 🧱 Passo a Passo Completo da Infraestrutura (EC2, Docker, NGINX)
+## Passo a Passo Completo da Infraestrutura (EC2, Docker, NGINX)
 
 ### Passo 1: Acesse sua AWS e crie uma instância!
 * Vá em **Executar Instâncias**, de um nome a ela e escolha Ubuntu!
@@ -23,7 +23,7 @@
 ![image](https://github.com/user-attachments/assets/382b3165-b079-454f-8e99-c26e5f0cdcbd)
 ![image](https://github.com/user-attachments/assets/63fb2003-82f6-451e-9bb7-4a5587e84106)
 
-* Clique em **Editar regras de entradas** e adicione as portas: 3306 (Mysql) e 5000-5005.
+* Clique em **Editar regras de entradas** e adicione as portas: 3306 (Mysql) e 5000-5005. No meu caso eu também adicionei a porta 8080, caso precisasse ja teria.
 
 ![image](https://github.com/user-attachments/assets/c2915104-9dc3-4ebb-893c-72b94edd0e98)
 
@@ -69,6 +69,7 @@ sudo apt install docker-compose docker.io -y
 ``` bash
 sudo docker-compose up --build -d
 ```
+* Acesse no navegador: http://<ENDEREÇO_IP_PUBLICO>
 ---
 
 ### Alguns comandos para o docker:
@@ -81,3 +82,14 @@ sudo docker logs <nome-do-container> #veja os logs de algum container
 ``` bash
 sudo docker-compose down #encerre e remova todos os containers
 ```
+``` bash
+sudo docker stop <nome-do-container>  # Encerra o container
+```
+``` bash
+sudo docker rm <nome-do-container>    # Remove o container
+```
+
+### Vídeo da aplicação rodando 
+
+https://github.com/user-attachments/assets/6efb11d7-0c21-446c-83af-e848f3dadafb
+
