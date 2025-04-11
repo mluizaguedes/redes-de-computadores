@@ -43,4 +43,4 @@
 ---
 
 ### Volte para as intruções do DOCKER
-* Acesse o passo a passo do [Docker](./readme-docker.md)
+* Acesse o passo a passo do [Docker](./docker-readme.md)
