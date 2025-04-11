@@ -95,15 +95,17 @@ Utilizar o RDS permite escalar o banco de dados de forma automática, além de c
 
 <Details> 
   <Summary>
-    📝 Fluxo de Requisições
+    🔁 Fluxo das Requisições
   </Summary>
 
 </br>
 
-1. O usuário envia uma requisição para o servidor, que é direcionada à porta 80 do Nginx;
-2. O Nginx, atuando como proxy reverso, recebe a requisição e a encaminha para uma dos servidores de backend (app1, app2, ou app3) com base na configuração de balanceamento de carga;
-3. O servidor do backend processa a requisição, interage com o banco de dados (se necessário) e envia a resposta de volta para o Nginx;
-4. O Nginx retorna a resposta ao usuário.
+* O usuário acessa o sistema via navegador (porta 80);
+* O Nginx recebe a requisição e a redireciona para uma instância de backend;
+* O backend processa e consulta o banco de dados, se necessário;
+* O Nginx retorna a resposta ao usuário.
+
+https://github.com/user-attachments/assets/4e658cb4-05d4-445b-9d36-96fdf60a574a
 
 </Details> 
 
@@ -114,6 +116,42 @@ Utilizar o RDS permite escalar o banco de dados de forma automática, além de c
   * Acesse para ver a configuração do [Projeto](./instruções/docker-readme.md)
 
 </details>
+
+<details>
+  <summary>
+  📝 Resumo:
+  </summary>
+
+</br>
+
+🐳 Dockerfile
+* Define como a imagem do backend será criada:
+* Usa imagem base Python 3.9;
+* Instala bibliotecas do sistema e dependências Python (via requirements.txt);
+* Expõe a porta 5000 para acesso à aplicação Flask;
+* Inicia a aplicação com python app.py.
+
+💾 Banco de Dados (AWS RDS MySQL)
+* Banco de dados hospedado na AWS RDS;
+* Tabela criada para armazenar dados dos usuários e suas opiniões sobre filmes.
+
+🌐 Nginx (Proxy Reverso + Load Balancer)
+* Distribui o tráfego entre 3 containers de backend (app1, app2, app3);
+* Usa pesos para definir quais instâncias recebem mais requisições (app1 recebe mais);
+* Encaminha requisições da porta 80 para o backend de forma equilibrada.
+
+🧩 Docker Compose
+* Orquestra a execução de todos os containers;
+* Define os serviços app1, app2, app3 (backends) e nginx;
+* Garante que o Nginx só inicie após os backends estarem prontos.
+</details>
+
+#### ✅ Benefícios da Arquitetura
+Escalável: Suporta mais acessos com múltiplos containers;
+
+Alta Disponibilidade: Se um servidor falhar, os outros continuam funcionando;
+
+Fácil de manter: Componentes isolados e banco de dados gerenciado na nuvem.
 
 ---
 
