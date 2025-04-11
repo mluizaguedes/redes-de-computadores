@@ -110,8 +110,6 @@ Utilizar o RDS permite escalar o banco de dados de forma automática, além de c
 * O backend processa e consulta o banco de dados, se necessário;
 * O Nginx retorna a resposta ao usuário.
 
-https://github.com/user-attachments/assets/4e658cb4-05d4-445b-9d36-96fdf60a574a
-
 </Details> 
 
 <details>
