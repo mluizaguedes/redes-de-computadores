@@ -51,6 +51,12 @@ A aplicação foi construída utilizando Docker, organizada em múltiplos contai
 ![AWS RDS](https://img.shields.io/badge/AWS_RDS-527FFF.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
+### ⚙️ Passo a Passo da Configuração - Projeto aws
+
+  * Acesse para ver o passo a passo do [Projeto](./instruções/docker-readme.md)
+  * Acesse para ver o passo a passo do [Banco de Dados](./instruções/banco-readme.md) no RDS.
+
+---
 
 <Details> 
   <Summary>
@@ -110,14 +116,6 @@ https://github.com/user-attachments/assets/4e658cb4-05d4-445b-9d36-96fdf60a574a
 </Details> 
 
 <details>
-  <summary>⚙️ Explicação das Configurações</summary>
-</br>
-  
-  * Acesse para ver a configuração do [Projeto](./instruções/docker-readme.md)
-
-</details>
-
-<details>
   <summary>
   📝 Resumo:
   </summary>
@@ -146,12 +144,11 @@ https://github.com/user-attachments/assets/4e658cb4-05d4-445b-9d36-96fdf60a574a
 * Garante que o Nginx só inicie após os backends estarem prontos.
 </details>
 
-#### ✅ Benefícios da Arquitetura
-Escalável: Suporta mais acessos com múltiplos containers;
 
-Alta Disponibilidade: Se um servidor falhar, os outros continuam funcionando;
-
-Fácil de manter: Componentes isolados e banco de dados gerenciado na nuvem.
+### Benefícios da Arquitetura
+- Escalável: Suporta mais acessos com múltiplos containers;
+- Alta Disponibilidade: Se um servidor falhar, os outros continuam funcionando;
+- Fácil de manter: Componentes isolados e banco de dados gerenciado na nuvem.
 
 ---
 
