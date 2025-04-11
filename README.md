@@ -38,6 +38,9 @@ Definir a estrutura de endereçamento da empresa e implementar DHCP para gerenci
 ### 🧩 Arquitetura da rede
 ![dagrama-de-redes](https://github.com/user-attachments/assets/4d005e48-e671-4976-875d-962a99841b41)
 
+### Visão Geral
+A aplicação foi construída utilizando Docker, organizada em múltiplos containers. É dividida em três componentes principais: o backend (que executa o servidor Python/Flask), o Nginx (como proxy reverso e balanceador de carga), e o Banco de Dados MySQL hospedado na AWS RDS (para armazenamento de dados relacionados aos usuários e suas opiniões sobre filmes).
+
 
 ### 🛠️ Tecnologias utilizadas
 ![AWS](https://img.shields.io/badge/aws-232F3E.svg?style=for-the-badge&logo=aws&logoColor=white)
@@ -48,10 +51,6 @@ Definir a estrutura de endereçamento da empresa e implementar DHCP para gerenci
 ![AWS RDS](https://img.shields.io/badge/AWS_RDS-527FFF.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-### Visão Geral
-A aplicação foi construída utilizando Docker, organizada em múltiplos containers. É dividida em três componentes principais: o backend (que executa o servidor Python/Flask), o Nginx (como proxy reverso e balanceador de carga), e o Banco de Dados MySQL hospedado na AWS RDS (para armazenamento de dados relacionados aos usuários e suas opiniões sobre filmes).
-
-</br>
 
 <Details> 
   <Summary>
@@ -107,12 +106,3 @@ Utilizar o RDS permite escalar o banco de dados de forma automática, além de c
 4. O Nginx retorna a resposta ao usuário.
 
 </Details> 
-
-</br>
-
-### Conclusão e Benefícios da Arquitetura
-- Escalabilidade: O uso de múltiplos servidores de backend permite que a aplicação lide com mais tráfego;
-- Alta Disponibilidade: Com o Nginx como load balancer, se um servidor falhar, os outros ainda poderão atender às requisições, garantindo a continuidade do serviço;
-- Facilidade de Manutenção: O backend e o proxy estão isolados em containers separados, o que facilita a manutenção e a atualização de componentes sem afetar os outros. Além disso, o banco de dados, hospedado no AWS RDS MySQL, oferece vantagens como gerenciamento simplificado, backups automáticos, monitoramento integrado, entre outras. Isso garante que o banco de dados seja mantido de forma eficiente e sem a necessidade de intervenção direta no servidor.
-
-Esta abordagem modular e escalável é uma solução ideal para aplicações que precisam lidar com uma carga variável ou crescer conforme a demanda.
