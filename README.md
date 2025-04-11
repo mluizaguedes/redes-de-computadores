@@ -56,8 +56,7 @@ A aplicação foi construída utilizando Docker, organizada em múltiplos contai
   * Acesse para ver o passo a passo do [Projeto](./instruções/docker-readme.md)
   * Acesse para ver o passo a passo do [Banco de Dados](./instruções/banco-readme.md) no RDS.
 
----
-
+</br>
 <Details> 
   <Summary>
     🏗️ Estrutura do Projeto
@@ -117,7 +116,7 @@ https://github.com/user-attachments/assets/4e658cb4-05d4-445b-9d36-96fdf60a574a
 
 <details>
   <summary>
-  📝 Resumo:
+  📝 Resumo
   </summary>
 
 </br>
