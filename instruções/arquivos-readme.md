@@ -36,6 +36,9 @@ sudo nano app.py
 # Importa as bibliotecas necessárias
 from flask import Flask, render_template, url_for, request, redirect
 from flask_mysqldb import MySQL
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 
 # Cria a aplicação Flask
@@ -44,11 +47,11 @@ app = Flask(__name__)
 # Captura o nome do servidor enviado pela variável de ambiente (usado para mostrar qual container respondeu)
 server_name = os.environ.get("SERVER_NAME", "Default Server")
 
-# Configurações de conexão com o banco de dados MySQL hospedado na AWS RDS
-app.config['MYSQL_HOST'] = 'database-1.cyuqerkjhmh8.us-east-1.rds.amazonaws.com'
-app.config['MYSQL_USER'] = 'admin'
-app.config['MYSQL_PASSWORD'] = 'ProjetoRedes'  # Atenção: nunca compartilhe senhas reais em repositórios públicos!
-app.config['MYSQL_DB'] = 'bdaws'
+# Configurações de conexão com o banco de dados MySQL disponível no arquivo .env
+app.config['MYSQL_HOST'] = os.environ.get('MYSQL_HOST')
+app.config['MYSQL_USER'] = os.environ.get('MYSQL_USER')
+app.config['MYSQL_PASSWORD'] = os.environ.get('MYSQL_PASSWORD')
+app.config['MYSQL_DB'] = os.environ.get('MYSQL_DB')
 
 # Inicializa o MySQL com as configurações acima
 mysql = MySQL(app)
